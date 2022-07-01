@@ -1,4 +1,4 @@
-# Page Rank Graph Neural Network
+# Personalized Page Rank Graph Neural Network
 
 This is the official implementation of the Personalized Page Rank Graph Neural Network (PPRGNN) with pytorch geometric.
 To execute the experiments run the corresponding main_<NAME>.py file.
