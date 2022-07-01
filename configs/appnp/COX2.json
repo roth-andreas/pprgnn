@@ -1,0 +1,7 @@
+{
+  "self_loops": true,
+  "lr": 0.01,
+  "clip": null,
+  "weight_decay": 0,
+  "schedule": false
+}

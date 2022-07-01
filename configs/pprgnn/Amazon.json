@@ -1,0 +1,7 @@
+{
+  "self_loops": false,
+  "eps": 0.06,
+  "lr": 0.01,
+  "clip": 0.5,
+  "weight_decay": 1e-8
+}
