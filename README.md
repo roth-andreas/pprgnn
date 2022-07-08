@@ -1,6 +1,8 @@
 # Personalized Page Rank Graph Neural Network
 
 This is the official implementation of the Personalized Page Rank Graph Neural Network (PPRGNN) with pytorch geometric.
+The preprint of is available at https://arxiv.org/abs/2207.00684 . The paper is accepted for publication at ECML 2022.
+
 To execute the experiments run the corresponding main_<NAME>.py file.
 
 ### Required Libraries:
