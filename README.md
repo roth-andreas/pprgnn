@@ -3,7 +3,9 @@
 This is the official implementation of the Personalized Page Rank Graph Neural Network (PPRGNN) with pytorch geometric.
 The preprint of is available at https://arxiv.org/abs/2207.00684 . The paper is accepted for publication at ECML-PKDD 2022.
 
-In case you are just interested in running a simplified version of our model, start with this code:
+## Plug & Play Version
+
+In case you are just interested in running a simplified version of our model, start with this code (a finite version is also included):
 
 ```
 import torch_geometric as pyg
@@ -41,6 +43,25 @@ class PPRGNN(nn.Module):
                 X = F.relu(X)
 
         for j in range(self.backward_n, - 1, -1):
+            alpha = 1 / (1 + (j * self.eps))
+            X = self.conv(X, edge_index, edge_weight)
+            X = alpha * X + x
+            X = F.relu(X)
+
+        return X
+        
+class Finite_PPRGNN(nn.Module):
+    def __init__(self, layers, features, eps=1):
+        super(Finite_PPRGNN, self).__init__()
+
+        self.conv = pyg.nn.GCNConv(features, features, normalize=False, add_self_loops=False, bias=False)
+        self.eps = eps
+        self.layers = layers
+
+    def forward(self, x, edge_index, edge_weight):
+        X = x
+
+        for j in range(self.layers, - 1, -1):
             alpha = 1 / (1 + (j * self.eps))
             X = self.conv(X, edge_index, edge_weight)
             X = alpha * X + x
