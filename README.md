@@ -5,7 +5,7 @@ The preprint of is available at https://arxiv.org/abs/2207.00684 . The paper is 
 
 ## Plug & Play Version
 
-In case you are just interested in running a simplified version of our model, start with this code (a finite version is also included):
+In case you are just interested in running a simplified version of our model, start with this code:
 
 ```
 import torch_geometric as pyg
@@ -49,7 +49,9 @@ class PPRGNN(nn.Module):
             X = F.relu(X)
 
         return X
-        
+```
+Alternatively you can use the finite version:
+```
 class Finite_PPRGNN(nn.Module):
     def __init__(self, layers, features, eps=1):
         super(Finite_PPRGNN, self).__init__()
